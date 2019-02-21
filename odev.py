@@ -62,7 +62,7 @@ class Stock:
 """""
 class Bonds(Stock):
     def __init__(self,price,symbol):
-        Stock.__init__(price,symbol)
+        Stock.__init__(self,price,symbol)
 """
 """
 portfolio = Portfolio()
