@@ -30,9 +30,9 @@ class Portfolio:
             self.mutualFunds.update(({mutualFunds.name :
                                           self.mutualFunds.get(mutualFunds.name) + float(number)}))
         else:
-            self.mutualFunds.update({mutualFunds.name:float(number)})
+            self.mutualFunds.update({mutualFunds.name:number})
         self.cash -= float(number)
-        self.transactions.append("Bought MutualFunds: %s Bought Number: %d" %(mutualFunds.name,number))
+        self.transactions.append("Bought MutualFunds: %s Bought Number: %f" %(mutualFunds.name,number))
     def sellMutualFund(self,mutualFund,number):
         self.mutualFunds.update({mutualFund:self.mutualFunds.get(mutualFund)-number})
         self.cash += number*random.uniform(0.9,1.2)
@@ -42,7 +42,7 @@ class Portfolio:
         self.transactions.append("Withdrew Cash : %d" % number)
     def __str__(self):
         for keys,values in self.stock.items():
-            print str(keys), str(values)
+            print str(keys), str(values[0])
         for keys,values in self.mutualFunds.items():
             print str(keys), str(values)
         print ("Cash : %f" %self.cash)
@@ -59,7 +59,12 @@ class Stock:
     def __init__(self,price,symbol):
         self.price = price
         self.symbol = symbol
-
+"""""
+class Bonds(Stock):
+    def __init__(self,price,symbol):
+        Stock.__init__(price,symbol)
+"""
+"""
 portfolio = Portfolio()
 portfolio.addCash(300.50)
 s = Stock(20,"HFH")
@@ -73,3 +78,4 @@ portfolio.sellMutualFund("BRT",3)
 portfolio.sellStock("HFH",1)
 portfolio.withdrawCash(50)
 portfolio.history()
+"""
