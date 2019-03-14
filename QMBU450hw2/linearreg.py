@@ -16,6 +16,8 @@ class linearReg:
         self.stdDev = np.std(self.e)
         self.var = np.dot(np.linalg.inv(np.dot(x.T,x)),self.stdDev)
 
+    def nan(self,x,y):
+        return np.isnan(self.x).any(),np.isnan(self.y).any()
     def normalize_data(self,data):
         return ((np.asmatrix(data)-np.min(data))/(np.max(data)-np.min(data)))
     def predict(self,data):
