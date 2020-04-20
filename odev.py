@@ -8,6 +8,7 @@ class Portfolio:
     def history(self):
         for hist in self.transactions:
             print(hist)
+			print("selam")
     def addCash(self,money):
         self.cash += money
         self.transactions.append("Added Cash : %d" % money)
