@@ -11,6 +11,7 @@ class Portfolio:
 			print("selam")
 			price++
     def addCash(self,money):
+	asdasdas
         self.cash += money
         self.transactions.append("Added Cash : %d" % money)
     def buyStock(self,number,stock):
